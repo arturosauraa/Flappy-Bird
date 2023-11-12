@@ -10,6 +10,7 @@ class Bird
 {
 public:
     Bird();
+    ~Bird();
     void Draw();
     void Update();
     void Jump();
@@ -17,6 +18,7 @@ public:
     float velocity, gravity;
     bool isJumping;
     bool gameOver;
+    Texture2D birdTexture;
 
 private:
 Pipe pipe;

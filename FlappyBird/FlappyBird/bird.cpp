@@ -5,17 +5,26 @@ Bird::Bird()
 {
     x = 200;
     y = 300;
-    radius = 15;
+    radius = 20;
     velocity = 0;
     gravity = 0.1f;
     isJumping = false;
     gameOver = false;
+    Image imageBird = LoadImage("image/bird.png");
+    birdTexture = LoadTextureFromImage(imageBird);
+    UnloadImage(imageBird);
+
+
+}
+
+Bird::~Bird()
+{
+    UnloadTexture(birdTexture);
 }
 
 void Bird::Draw()
 {
-
-    DrawCircle(x, y, radius, WHITE);
+    DrawTextureEx(birdTexture, Vector2{x,y}, 0, 0.2, WHITE);
 }
 
 void Bird::Update()
@@ -47,5 +56,5 @@ void Bird::Update()
 
 void Bird::Jump()
 {
-    velocity = -5.0f;
+    velocity = -3.0f;
 }
